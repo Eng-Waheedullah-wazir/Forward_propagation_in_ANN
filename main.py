@@ -10,7 +10,8 @@ dataset=Dataset(data)
 x_train,y_train,x_val,y_val,x_test,y_test=dataset.split_data()
 train_data,val_data,test_data=create_data(x_train,y_train,x_val,y_val,x_test,y_test)
 # create  the object of the Trainmodel
-model=Train_model(train_data.shape[1])
-out=model(train_data)
-print(out.shape)
+model=Train_model(x_train.shape[1])
+for x_train_batch,y_train_batch in train_data:
+    out=model(x_train_batch)
 
+print(out.shape)
